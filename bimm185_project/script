@@ -15,7 +15,7 @@ if [ $# -eq $zero ];
 fi
 if [ $# -eq $three ]
 	then
-		# get intersect file containing genes in second file that aren't in first file
+		# get intersect file containing genes in second fasta file that aren't in the first fasta file
 		bwa index ${!two}
 		bwa mem ${!two} ${!one} > alignment.sam
 		samtools view -S -b alignment.sam > alignment.bam
