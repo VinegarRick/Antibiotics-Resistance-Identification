@@ -10,7 +10,9 @@ obtained from here: https://bitbucket.org/genomicepidemiology/resfinderdb. Add t
 to the resfinder folder. 
 
 As per the instructions, running brew.sh will also install Blast. However, this ResFinder is compatible only with the legacy blast package, specifically 2.2.26, which can be 
-obtained here: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy/2.2.26/. Add the Blast folder "blast-2.2.26" to the resfinder folder.  
+obtained here: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy/2.2.26/. Add the Blast folder "blast-2.2.26" to the resfinder folder. 
+
+bwa, samtools, and bedtools must be installed.
 
 Compilation:
 
