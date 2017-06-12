@@ -28,8 +28,8 @@ vulnerabilities and resistances. This is run as follows:
 
 For two fasta files and an annotation gff file for one of the two fasta files, the script aligns the first fasta file to the second 
 fasta file and utilizes bedtools to take the intersect of the alignment and the first fasta file's annotation file in order to obtain 
-genes sequences in the second fasta file that differ from the second. ResFinder is then used to detect antibiotic vulnerabilities shared 
-between the two fasta files and and all resistances. This is run as follows:
+a fasta file "intersect.fna" containing genes sequences in the second fasta file not present in the first. ResFinder is then used 
+to detect antibiotic vulnerabilities shared between the two fasta files and and all resistances. This is run as follows:
 
 ./script file1.fna file2.fna file1.gff
 
