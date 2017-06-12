@@ -1,0 +1,42 @@
+#!/bin/bash
+
+g++ merge_strains.cpp -o merge_strains -std=c++11
+g++ get_vulnerabilities.cpp -o get_vulnerabilities -std=c++11
+
+zero=0
+one=1
+two=2
+three=3
+array=( "$@" )
+
+if [ $# -eq $zero ];
+	then
+		exit 1
+fi
+if [ $# -eq $three ]
+	then
+		# get intersect file containing genes in second file that aren't in first file
+		bwa index ${!two}
+		bwa mem ${!two} ${!one} > alignment.sam
+		samtools view -S -b alignment.sam > alignment.bam
+		samtools sort alignment.bam -o alignment_sorted.bam
+		samtools index alignment_sorted.bam
+		bedtools bamtobed -i alignment_sorted.bam > alignment_sorted.bed
+		bedtools intersect -a alignment_sorted.bed -b ${!three} -v > intersect.bed
+		bedtools getfasta -fo intersect.fna -fi ${!two} -bed intersect.bed
+		unset "array[${#array[@]}-1]"
+fi
+#elif [ $# -gt $two ]
+	#then
+		# get intersect file containing genes common to all files
+#fi
+
+./merge_strains ${array[@]}
+
+perl resfinder/resfinder.pl -d resfinder/database -b resfinder/blast-2.2.26 -i concatenated_strains.fna -a aminoglycoside,colistin,quinolone,fosfomycin,fusidicacid,glycopeptide,macrolide,nitroimidazole,oxazolidinone,phenicol,rifampicin,sulphonamide,tetracycline,trimethoprim,beta-lactam -k 90.00 -l 0.60
+
+clear
+
+./get_vulnerabilities
+
+rm concatenated_strains.fna
