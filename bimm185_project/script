@@ -33,7 +33,7 @@ fi
 
 ./merge_strains ${array[@]}
 
-perl resfinder/resfinder.pl -d resfinder/database -b resfinder/blast-2.2.26 -i concatenated_strains.fna -a aminoglycoside,colistin,quinolone,fosfomycin,fusidicacid,glycopeptide,macrolide,nitroimidazole,oxazolidinone,phenicol,rifampicin,sulphonamide,tetracycline,trimethoprim,beta-lactam -k 90.00 -l 0.60
+perl resfinder/resfinder.pl -d resfinder/genomicepidemiology-resfinder_db-fa3f073985f5 -b resfinder/blast-2.2.26 -i concatenated_strains.fna -a aminoglycoside,colistin,quinolone,fosfomycin,fusidicacid,glycopeptide,macrolide,nitroimidazole,oxazolidinone,phenicol,rifampicin,sulphonamide,tetracycline,trimethoprim,beta-lactam -k 90.00 -l 0.60
 
 clear
 
