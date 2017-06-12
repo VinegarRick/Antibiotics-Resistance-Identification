@@ -39,7 +39,12 @@ int main ( int argc, char * argv[] )
 	results_table.close();
 
 	if ( !vulnerabilities.empty() ) {
-		cout << "Vulnerabilities:" << endl;
+		if ( argc == 2 ) {
+			cout << "Vulnerabilities:" << endl;
+		}
+		else if ( argc > 2 ) {
+			cout << "Shared Vulnerabilities:"
+		}
 		for ( string vulnerability : vulnerabilities ) {
 			cout << vulnerability << endl;
 		}
