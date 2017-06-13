@@ -33,7 +33,7 @@ fasta file and utilizes bedtools to take the intersect of the alignment and the 
 a fasta file "intersect.fna" containing genes sequences in the second fasta file not present in the first. ResFinder is then used 
 to detect antibiotic vulnerabilities shared between the two fasta files and and all resistances. This is run as follows:
 
-./script file1.fna file2.fna file1.gff
+./script file1.fna file2.fna file2.gff
 
 For three or more fasta files, the script simply utilizes ResFinder to detect antibiotic vulnerabilities shared by all input fasta files
 and all total resistances. This is run as follows:
