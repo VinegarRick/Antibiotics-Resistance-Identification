@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#g++ merge_strains.cpp -o merge_strains -std=c++11
-#g++ get_vulnerabilities.cpp -o get_vulnerabilities -std=c++11
+g++ merge_strains.cpp -o merge_strains -std=c++11
+g++ get_vulnerabilities.cpp -o get_vulnerabilities -std=c++11
 
 zero=0
 one=1
@@ -22,7 +22,8 @@ if [ $# -eq $three ]
 		samtools sort alignment.bam -o alignment_sorted.bam
 		samtools index alignment_sorted.bam
 		bedtools bamtobed -i alignment_sorted.bam > alignment_sorted.bed
-		bedtools intersect -a alignment_sorted.bed -b ${!three} -v > intersect.bed
+		bedtools intersect -a ${!three} -b alignment_sorted.bed -v > intersect.bed 
+		#bedtools intersect -a alignment_sorted.bed -b ${!three} -v > intersect.bed
 		bedtools getfasta -fo intersect.fna -fi ${!two} -bed intersect.bed
 		unset "array[${#array[@]}-1]"
 fi
