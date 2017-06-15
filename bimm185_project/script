@@ -29,6 +29,17 @@ fi
 #elif [ $# -gt $two ]
 	#then
 		# get intersect file containing genes common to all files
+		# bwa index argv[argc-1];
+		# for ( i = 0 ; i < argc - 3 ; ++i ) {
+			# bwa mem argv[argc-1] argv[i+1] > alignment$(i+1).sam
+			# samtools view -S -b alignment$(i+1).sam > alignment$(i+1).bam
+			# samtools sort alignment$(i+1).bam -o alignment$(i+1)_sorted.bam
+			# samtools index alignment$(i+1)_sorted.bam
+			# bedtools bamtobed -i alignment$(i+1)_sorted.bam > alignment$(i+1)_sorted.bed
+		# }
+		# bedtools intersect -wa -wb -a argv[1] -b *.bed > intersect.bed
+		# bedtools getfasta -fo intersect.fna -fi argv[0] -bed intersect.bed
+		# unset "array[${#array[@]}-1]"
 #fi
 
 ./merge_strains ${array[@]}
