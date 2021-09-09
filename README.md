@@ -1,4 +1,4 @@
-# Antibiotics Resistance Identification 
+# Antibiotics Resistance Identification and Analysis
 
 Installation:
 
