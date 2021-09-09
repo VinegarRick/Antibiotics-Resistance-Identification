@@ -1,4 +1,4 @@
-# bimm185
+# Antibiotics Resistance Identification 
 
 Installation:
 
